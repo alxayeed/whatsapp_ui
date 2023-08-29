@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/colors.dart';
+import 'package:whatsapp_ui/contacts.dart';
 
 class MobileScreenLayout extends StatelessWidget {
   const MobileScreenLayout({Key? key}) : super(key: key);
@@ -48,7 +49,36 @@ class MobileScreenLayout extends StatelessWidget {
               ]
           ),
         ),
-        body: const Center(child: Text("M O B I L E")),
+        body: ListView.builder(
+          shrinkWrap: true,
+          itemCount: contacts.length,
+            itemBuilder: (context, index){
+              var contact = contacts[index];
+
+              return Column(
+                children: [
+                  InkWell(
+                    onTap: (){},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: ListTile(
+                        title: Text(contact["name"].toString(), style: const TextStyle(fontSize: 18),),
+                        subtitle: Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Text(contact["message"].toString(), style: const TextStyle(fontSize: 14, color: Colors.grey),),
+                        ),
+                        leading: CircleAvatar(
+                          backgroundImage: NetworkImage(contact["profilePic"].toString()),
+                        ),
+                        trailing: Text(contact["time"].toString(), style: const TextStyle(fontSize: 12, color: Colors.grey),),
+                      ),
+                    ),
+                  ),
+                  const Divider(color: dividerColor,)
+                ],
+              );
+            }
+        ),
       ),
     );
   }
