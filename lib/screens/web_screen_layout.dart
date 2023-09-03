@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/contact_list.dart';
 import '../widgets/web_app_bar.dart';
+import '../widgets/web_chat_app_bar.dart';
 import '../widgets/web_search_bar.dart';
 
 class WebScreenLayout extends StatelessWidget {
@@ -34,6 +35,13 @@ class WebScreenLayout extends StatelessWidget {
                   image: AssetImage("bg_image.png"),
                   fit: BoxFit.cover
                 )
+            ),
+            child: const Column(
+              children: [
+                WebChatAppBar(),
+                // Chat list
+                // Message Input Box
+              ],
             ),
           ),
 
