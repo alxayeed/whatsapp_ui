@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/contact_list.dart';
+import '../widgets/web_app_bar.dart';
 
 class WebScreenLayout extends StatelessWidget {
   const WebScreenLayout({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class WebScreenLayout extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  // Web profile bar
+                  WebAppBar(),
                   // Web search bar
                   ContactList(),
                 ],
