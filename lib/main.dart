@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/constants/colors.dart';
 import 'package:whatsapp_ui/responsive/responsive_layout_builder.dart';
@@ -15,6 +17,12 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(
+        dragDevices: {
+          PointerDeviceKind.touch,
+          PointerDeviceKind.mouse,
+        },
+      ),
       theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: backgroundColor,
       ),
